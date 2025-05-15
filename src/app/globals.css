@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    background-color:  
+    rgb(0, 0, 0)
+}
+/* lightseagreen; */
+

@@ -1,0 +1,76 @@
+body {
+    margin: 18px;
+}
+
+.App {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.lg-react-element {
+    column-count: 3;
+    column-gap: 5px;  
+    padding: 0 10px; 
+}
+
+.image-container {
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 250px;  /* Fixed height for all image containers */
+    background-color: #f0f0f0;  /* Light gray for unavailable images */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;  /* Ensures that placeholder text is centered over the container */
+    cursor: pointer;  /* Shows the cursor as a pointer for all containers */
+}
+
+.image-container.disabled {
+    cursor: not-allowed;  /* Disable pointer cursor for empty containers */
+}
+
+.image-container img {
+    width: 100%;  /* Make the image take the full width of the container */
+    height: 100%;  /* Make the image take the full height of the container */
+    object-fit: cover;  /* Ensures the image fills the container while maintaining aspect ratio */
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.image-container img:hover {
+    filter: opacity(.9);
+    transform: scale(1.01);
+}
+
+.image-placeholder {
+    position: absolute;
+    color: #888;
+    font-size: 16px;
+    text-align: center;
+    display: none;
+}
+
+.image-container img[src=""]:not([src]) {
+    display: none; 
+}
+
+.image-container img[src=""]:not([src]) + .image-placeholder {
+    display: block;  /* Show the placeholder text when image is unavailable */
+}
+
+/* Empty container styling */
+.image-container:empty {
+    background-color: #e6cccc; /* Gray background when image is missing */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container:empty span {
+    color: #cecbcb;
+    font-size: 16px;
+}
